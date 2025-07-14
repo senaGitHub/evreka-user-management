@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# Evreka Frontend Developer – User Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a submission for Evreka’s Frontend Developer Technical Assessment.  
+It is a mini CRM-style application where you can view, filter, add, and manage users, designed with a focus on clean code, responsiveness, and a modern UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **User List View**
+  - Displays 5,000 fake users (generated locally)
+  - Switch between Card View and Table View
+  - Responsive and mobile-friendly layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Filtering and Search**
+  - Search users by name or email
+  - Search input synced with URL query parameter (e.g., `?q=john`) ✅
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Pagination**
+  - Paginated view: 10 users per page
+  - "Show All" toggle to render all users
+  - Smart pagination with First, Last, Prev, Next and active page highlighting ✅
+  - Current page scrolls to top automatically
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Add New User**
+  - Modal form with the following fields: Name, Email, Password, Role, Active status
+  - Form validation (required fields, email format, min password length)
+  - New user is saved to Redux and persisted with LocalStorage
+  - Coordinates (latitude & longitude) are randomly generated
+  - Modal is managed by React Router via `/add-user` path ✅
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **User Detail Page**
+  - Route: `/users/:id`
+  - Displays full user details
+  - Embedded map using Leaflet (OpenStreetMap)
+  - Marker showing user’s randomly assigned location
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Persistence**
+  - Users are saved in LocalStorage and persist after refresh
+  - New users are retained even if the page is reloaded
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧰 Tech Stack
+
+- **React** (with Vite)
+- **TypeScript**
+- **Redux Toolkit** (for state management)
+- **React Router v6**
+- **Styled-components** (custom theming & responsive design)
+- **Leaflet.js** (map rendering)
+- **LocalStorage**
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/senaGitHub/evreka-user-management.git
+cd evreka-user-management
+npm install
+npm run dev
