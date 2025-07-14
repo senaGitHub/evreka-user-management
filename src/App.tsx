@@ -1,5 +1,5 @@
 // This is the main application component.
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserList from "./pages/UserList";
 import UserDetail from "./pages/UserDetail";
 import { useSelector } from "react-redux";
